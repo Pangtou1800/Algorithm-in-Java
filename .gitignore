@@ -1,3 +1,5 @@
 /.vscode
 /data-structure/.*
 /data-structure/target
+/algorithm/.*
+/algorithm/target
