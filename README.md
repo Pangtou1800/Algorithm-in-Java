@@ -484,6 +484,11 @@
     
     代码实现 - Bubble.java
 
+    -- 100 Random Numbers
+
+        [Bubble.sort] compared: 4950
+        [Bubble.sort] swaped  : 2689
+
 ### 7.5 选择排序
 
     选择排序（Select Sorting）
@@ -493,6 +498,11 @@
         ·交换次数恒定
     
     代码实现 - Select.java
+
+    -- 100 Random Numbers
+
+        [Select.sort] compared: 4950
+        [Select.sort] swaped  : 100
 
 ### 7.6 插入排序
 
@@ -504,3 +514,58 @@
     
     代码实现 - Insertion.java
 
+    -- 100 Random Numbers
+
+        [Insertion.sort] compared: 2783
+        [Insertion.sort] swaped  : 2689
+
+### 7.7 希尔排序
+
+    希尔排序（Shell Sorting）
+
+        简单插入排序经过改进之后的一个高效版本，也称为缩小增量排序
+
+        把记录按照下标的一定增量分组，对每组使用直接插入算法排序；
+        随着增量逐渐减少，每组包含的对象越来越多；
+        当增量减至1时，排序就结束了。
+
+    代码实现 - Shell.java
+
+    -- 100 Random Numbers
+
+    来自<算法4>：
+    步长采取：1,4,13,40... (3n+1)
+
+        [Shell.sort] compared: 742
+        [Shell.sort] swaped  : 446
+
+    试试别的：
+    步长采取：1,3,7,15,31... (2n+1)
+
+        [Shell.sort] compared: 770
+        [Shell.sort] swaped  : 337
+    
+    步长采取：1,5,21,85... (4n+1)
+
+        [Shell.sort] compared: 780
+        [Shell.sort] swaped  : 528
+
+    单纯对半：
+
+        [Shell.sort] compared: 893
+        [Shell.sort] swaped  : 450
+
+### 7.8 快速排序
+
+    快速排序（QuickSort）
+
+        是对冒泡排序的一种改进。
+
+        通过一趟排序将数据分割成独立的两部分，其中一部分比另外一部分所有数据都小。
+        然后再以此方法对每部分递归处理。
+        每部分只剩1个元素时，排序就结束了。
+
+    -- 100 Random Numbers
+
+        [Quick.sort] compared: 635
+        [Quick.sort] swaped  : 382

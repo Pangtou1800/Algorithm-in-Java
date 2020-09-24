@@ -7,13 +7,13 @@ public class Bubble {
 
     public static void main(String[] args) {
 
-        int nums = 20;
+        int nums = 100;
 
         Random rand = new Random(47);
         int[] eles = new int[nums];
         int[] eles2 = new int[nums];
         for (int i = 0; i < nums; i++) {
-            eles[i] = rand.nextInt(100);
+            eles[i] = rand.nextInt(1000);
         }
         System.arraycopy(eles, 0, eles2, 0, nums);
 
