@@ -155,7 +155,9 @@
     3.思路整理
 
         二维数组转稀疏数组的思路：
+
         
+
             1.遍历原始二维数组，得到有效数据的个数sum
             2.根据sum就可以创建稀疏数组sparseArray int[sum+1][3]
             3.将二维数组的有效数据存入稀疏数组即可
@@ -357,7 +359,9 @@
     1 0 0 0 0 1
     1 0 0 1 0 1
     1 1 1 1 1 1
+
         
+
     *能否从左上角到达右下角？
 
 ### 6.2 递归简单案例
@@ -423,7 +427,9 @@
     分类：
         1.内部排序
             将需要处理的所有数据加载到内部存储器中进行排序
+
         
+
         2.外部排序
             数据量过大，无法全部加载到内存中，需要借助外部存储装置进行排序
 
@@ -569,3 +575,50 @@
 
         [Quick.sort] compared: 635
         [Quick.sort] swaped  : 382
+
+    来自<算法4>：
+    分割时左右指针各自尽量连续移动：
+
+        [Quick.sort] compared: 689
+        [Quick.sort] swaped  : 173
+
+### 7.9 归并排序
+
+    归并排序（Merge Sort）
+
+        利用归并的思想实现的排序方法，采用经典的分治策略。
+
+    -- 100 Random Numbers
+
+        [Merge.sort] compared: 536
+        [Merge.sort] copied  : 1344 => Notice there is no 'swap' in merge sort
+
+### 7.10 基数排序
+
+    基数排序（Radix Sort），又称桶排序（Bucket Sort）
+
+        将所有待比较数字统一为同样长度，然后从低位开始依次进行排序
+    
+    代码实现 - Bucket.java
+
+    -- 100 Random Numbers
+
+        [Bucket.sort] compared: 0
+        [Bucket.sort] copied  : 600 => 100*2*3 (scale: 10^3)
+
+        No compare, no swap ~ 小字母表短键桶排序太强啦 ~
+
+### 7.11 常用排序算法时间复杂度比较
+
+|排序算法|平均|最好|最坏|空间|排序方式|稳定|
+|---|---|---|---|---|---|---|---|
+|冒泡|O(n^2)|O(n)|O(n^2)|O(1)|In-place|稳定|
+|选择|O(n^2)|O(n^2)|O(n^2)|O(1)|In-place|不稳定|
+|插入|O(n^2)|O(n)|O(n^2)|O(1)|In-place|稳定|
+|希尔|O(nlgn)|？|？|O(1)|In-place|不稳定|
+|归并|O(nlgn)|O(nlgn)|O(nlgn)|O(n)|Out-place|稳定|
+|快速|O(nlgn)|O(nlgn)|O(n^2)|O(lgn)|In-place|不稳定|
+|堆|O(nlgn)|O(nlgn)|O(nlgn)|O(1)|In-place|不稳定|
+|桶|O(nk)|O(nk)|O(nk)|O(n^2)|Out-place|稳定|
+
+        
