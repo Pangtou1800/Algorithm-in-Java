@@ -418,7 +418,7 @@
 
     ！求全部解，找到解后不返回继续循环，真正的回溯
 
-## 第7章 排序算法
+## 第七章 排序算法
 
 ### 7.1 介绍
 
@@ -621,4 +621,107 @@
 |堆|O(nlgn)|O(nlgn)|O(nlgn)|O(1)|In-place|不稳定|
 |桶|O(nk)|O(nk)|O(nk)|O(n^2)|Out-place|稳定|
 
-        
+## 第八章 查找
+
+### 8.1 线性查找
+
+    线性查找（Seq Search）
+
+        序列可以有序也可以无序，依次探查即可。
+    
+    代码实现 - SeqSearch.java
+
+    -- Look for 20 Random numbers in 100 Random numbers 
+
+        [SeqSearch.search] compared: 1835
+
+### 8.2 二分查找
+
+    二分查找（Binary Search）
+
+        序列必须有序。
+        无序数组使用二分查找必须先排序。
+
+    代码实现 - BinarySearch.java
+
+    -- Look for 20 Random numbers in 100 Random numbers 
+
+        [Binary.search] compared: 133
+
+    Extra Cost:
+
+        [Shell.sort] compared: 742
+        [Shell.sort] swaped  : 446
+
+### 8.3 差值查找
+
+    类似于二分查找，只是下一个mid值算出时，估算目标和可能出现位置的偏移量
+
+        mid = (low + high)/2
+        ↓
+        mid = low + (key - a[low])/(a[high] - a[low])*(high - low)
+
+    数组均匀分布的时候可以减少查找次数
+
+    代码实现 - DivisionSearch.java
+
+    -- Look for 20 Random numbers in 100 Random numbers 
+
+        [Division.search] compared: 164
+
+        => 因为下标计算和减法会算出负数，所以每次都要额外判断target是否还在区间内
+
+    Extra Cost:
+
+        [Shell.sort] compared: 742
+        [Shell.sort] swaped  : 446
+
+### 8.4 斐波那契查找
+
+    斐波那契查找，又称为黄金分割查找法。
+
+    斐波那契数列1,1,2,3,5,8...两个相邻数的比例逐渐接近黄金分割值0.618
+
+    和差值查找类似，只是mid采用斐波那契数列算出
+
+    mid = low + F(k-1) - 1
+
+    需要提前将序列增长到下一个菲波那切数-1的长度
+
+    1 2 3 4 5 6 7 
+    1 2 3 4 ↑ 1 2 
+            mid
+
+    代码实现 - Fibonacchi.java
+
+    -- Look for 20 Random numbers in 100 Random numbers 
+
+        [Fibnoacchi.search] compared: 147
+    
+    Extra Cost:
+
+        [Shell.sort] compared: 742
+        [Shell.sort] swaped  : 446
+
+        == not very interesting 唯一的优势是算mid时将除法降级为加减法
+
+## 第九章 哈希表
+
+### 9.1 实际案例
+
+    将员工信息加入如管理系统；当输入id时，查询到员工信息。
+        id,gender,age,address...
+    
+    要求不使用数据库，而且速度越快越好。
+
+### 9.2 哈希表的基本介绍
+
+    哈希表(Hash table)是根据关键码值而直接进行访问的数据结构。
+    它通过把关键码值映射到表中的一个位置来访问记录，以加快查找速度。
+
+### 9.3 实现
+
+    要求：
+        ·员工只有id和name
+        ·用链表保存元素
+        ·链表不带表头
