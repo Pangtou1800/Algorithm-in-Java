@@ -28,6 +28,18 @@ public class BinaryTree {
         root.inSearch(0);
         System.out.println("[PostSearching] : " + 0);
         root.postSearch(0);
+
+        TreeNode fakeRoot = new TreeNode(-1);
+        fakeRoot.left = root;
+        fakeRoot.delete(4);
+        root = fakeRoot.left;
+
+        if (root == null) {
+            System.out.println("null");
+        } else {
+            System.out.println(root.inOrder());
+        }
+
     }
 
 }
@@ -39,6 +51,28 @@ class TreeNode {
 
     public TreeNode(int val) {
         this.val = val;
+    }
+
+    public boolean delete(int val) {
+        if (this.left != null) {
+            if (this.left.val == val) {
+                this.left = null;
+                return true;
+            }
+            if (this.left.delete(val)) {
+                return true;
+            }
+        }
+        if (this.right != null) {
+            if (this.right.val == val) {
+                this.right = null;
+                return true;
+            }
+            if (this.right.delete(val)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean preSearch(int val) {
