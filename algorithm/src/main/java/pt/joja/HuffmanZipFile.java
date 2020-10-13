@@ -43,7 +43,7 @@ public class HuffmanZipFile {
         loadTree(srcBytes);
 
         // 创建输出流
-        FileOutputStream os = new FileOutputStream(dstFile);
+        
         String somethingBig = encode(srcBytes);
 
         byte[] srcFromString = decodeString(somethingBig);
@@ -63,6 +63,7 @@ public class HuffmanZipFile {
         String binString = somethingBig.substring(i);
         targetBytes[j++] = (byte) Integer.parseInt(binString, 2);
 
+        FileOutputStream os = new FileOutputStream(dstFile);
         os.write(targetBytes);
         os.close();
 
