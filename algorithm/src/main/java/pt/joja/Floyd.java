@@ -142,9 +142,5 @@ public class Floyd {
             lenArray[start - 'A'][end - 'A'] = len;
             lenArray[end - 'A'][start - 'A'] = len;
         }
-
-        public int getLen(char start, char end) {
-            return lenArray[start - 'A'][end - 'A'];
-        }
     }
 }
