@@ -40,8 +40,21 @@ public class HorseTravel {
 
     static int sols = 0;
     static int ctr = 1;
+    static HashMap<String, Integer> solvedSols = new HashMap<>();
 
     public static void travelSols(Board board, Pos pos, int step) {
+
+        // String key = board.leftNow(pos);
+        // if (solvedSols.containsKey(key)) {
+        //     sols += solvedSols.get(key);
+        //     if (sols > ctr) {
+        //         System.out.println(new java.util.Date() + ": Over " + ctr + " sols found...");
+        //         ctr += ctr;
+        //     }
+        //     return;
+        // }
+
+        // int before = sols;
 
         if (board.visited == board.maxSize) {
             sols++;
@@ -62,6 +75,10 @@ public class HorseTravel {
                 }
             }
         }
+
+        // if (sols > before) {
+        //     solvedSols.put(key, sols - before);
+        // }
     }
 
     // 解法太多,第一个解时停止遍历
@@ -186,15 +203,16 @@ public class HorseTravel {
             }
         }
 
-        public String leftNow() {
+        public String leftNow(Pos pos) {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < board.length; i++) {
                 for (int j = 0; j < board.length; j++) {
                     if (board[i][j] == 0) {
-                        sb.append(i);
-                        sb.append(",");
-                        sb.append(j);
-                        sb.append(";");
+                        sb.append("0");
+                    } else if (pos.row == i && pos.col == j) {
+                        sb.append("2");
+                    } else {
+                        sb.append("1");
                     }
                 }
             }
